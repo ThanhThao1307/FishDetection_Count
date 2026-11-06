@@ -80,7 +80,7 @@ Start-Service MongoDB
 
 ### Cài thư viện (chỉ làm một lần sau khi tải project)
 
-Các lệnh 'npm install' cài thư viện Node.js cần thiết cho backend/frontend. Đây không phải lệnh chạy ứng dụng; sau này không cần cài lại trừ khi dependencies thay đổi.
+Các lệnh 'npm install' cài thư viện Node.js cần thiết cho backend/frontend, sau này không cần cài lại trừ khi dependencies thay đổi.
 
 ```powershell
 cd backend
@@ -94,7 +94,6 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r ..\..\requirements.txt
 ```
 
-Đảm bảo có file ".env" ở thư mục gốc và đã cấu hình kết nối MongoDB. AI service cần các checkpoint trong "backend\ai-service\weights".
 
 ### Chạy ứng dụng
 
@@ -113,5 +112,3 @@ Terminal 2 — frontend:
 cd frontend
 npm run dev
 ```
-
-Mở địa chỉ frontend hiển thị trong terminal, thường là `http://localhost:5173`.
