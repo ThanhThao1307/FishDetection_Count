@@ -21,10 +21,6 @@ FishCount là ứng dụng web hỗ trợ phân tích video để nhận diện,
 - Xem video đầu ra có khung đánh dấu và nhãn nhận diện.
 - Đăng ký/đăng nhập, quản lý hồ sơ và xem lịch sử phân tích cá nhân. Có thể dùng thử phân tích mà không đăng nhập.
 
-## Lưu ý về kết quả
-
-Số liệu và mức đánh giá nhận diện là ước tính tự động, không phải kết quả chính xác đã được kiểm chứng. Chất lượng video, ánh sáng, góc quay và việc cá bị che khuất có thể ảnh hưởng đến kết quả; một cá thể cũng có thể bị đếm nhiều lần nếu hệ thống mất dấu rồi nhận diện lại. Dịch vụ AI cần các checkpoint mô hình được đặt trong `backend\ai-service\weights`.
-
 ## Cài đặt môi trường
 
 Mở terminal trong VS Code tại thư mục project.
@@ -84,7 +80,7 @@ Start-Service MongoDB
 
 ### Cài thư viện (chỉ làm một lần sau khi tải project)
 
-Các lệnh 'npm install' cài thư viện Node.js cần thiết cho backend/frontend. Đây không phải lệnh chạy ứng dụng; sau này không cần cài lại trừ khi dependencies thay đổi.
+Các lệnh 'npm install' cài thư viện Node.js cần thiết cho backend/frontend, sau này không cần cài lại trừ khi dependencies thay đổi.
 
 ```powershell
 cd backend
@@ -98,7 +94,6 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r ..\..\requirements.txt
 ```
 
-Đảm bảo có file ".env" ở thư mục gốc và đã cấu hình kết nối MongoDB. AI service cần các checkpoint trong "backend\ai-service\weights".
 
 ### Chạy ứng dụng
 
@@ -117,5 +112,3 @@ Terminal 2 — frontend:
 cd frontend
 npm run dev
 ```
-
-Mở địa chỉ frontend hiển thị trong terminal, thường là `http://localhost:5173`.
