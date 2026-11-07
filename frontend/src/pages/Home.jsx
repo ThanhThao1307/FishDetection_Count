@@ -87,11 +87,6 @@ export default function Home({ initialId=null, user, onLogin }) {
         <li>Chờ phần mềm xem hết video và nhận diện các nhóm cá.</li>
         <li>Xem tổng số cá, số cá theo từng nhóm loài và video có đánh dấu.</li>
       </ol></section>
-      <section className="panel info-panel"><h3>Lưu ý về số liệu</h3>
-        <p>Số liệu là ước tính tự động; phần mềm có thể nhận diện nhầm.</p>
-        <p>Một con cá có thể bị tính nhiều lần nếu bị che khuất hoặc phần mềm mất dấu rồi nhận diện lại.</p>
-        <p>Cá xuất hiện quá ngắn trong video có thể không được tính.</p>
-      </section>
     </aside>
   </div>;
 }

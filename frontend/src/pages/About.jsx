@@ -10,6 +10,10 @@ const TARGET_SPECIES = [
   {
     name: "Diplodus vulgaris",
     traits: "Thân bạc hơi xám, thường có hai dải đen gần đầu và cuống đuôi."
+  },
+  {
+    name: "Loài khác / chưa xác định",
+    traits: "Dành cho loài mới lạ không nằm trong danh sách mục tiêu hoặc hình ảnh chưa đủ căn cứ để nhận diện."
   }
 ];
 
@@ -32,7 +36,6 @@ export default function About({ onStart }) {
           <p>{species.traits}</p>
         </article>)}
       </div>
-      <p className="about-copy">Cá thuộc nhóm khác hoặc hình ảnh chưa đủ rõ để phân loại sẽ được ghi là “Loài khác / chưa xác định”.</p>
     </section>
 
     <section className="panel">
@@ -44,7 +47,6 @@ export default function About({ onStart }) {
         <article><strong>Số cá ước tính</strong><p>Tổng số và số theo loài là kết quả phần mềm ghi nhận khi theo dõi cá qua các khung hình, giúp bạn hình dung khái quát về video.</p></article>
         <article><strong>Video có đánh dấu</strong><p>Xem lại video để kiểm tra vị trí các cá thể mà phần mềm nhận diện được.</p></article>
       </div>
-      <p className="note">Số liệu chỉ mang tính ước tính, không đảm bảo là số cá thể khác nhau ngoài thực tế. Một con cá có thể bị tính nhiều lần nếu bị che khuất hoặc phần mềm mất dấu rồi nhận diện lại. Góc quay, ánh sáng và chất lượng video cũng có thể ảnh hưởng đến kết quả.</p>
     </section>
   </div>;
 }
