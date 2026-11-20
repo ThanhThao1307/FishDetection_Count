@@ -12,4 +12,5 @@ export async function getProcessedVideoUrl(id) {
 export async function getHistory(page=1) { return (await api.get(`/analyses?page=${page}&limit=10`)).data; }
 export async function deleteAnalysis(id) { return (await api.delete(`/analyses/${id}`)).data; }
 export async function authenticate(mode, payload) { return (await api.post(`/auth/${mode}`, payload)).data; }
+export async function getCurrentUser() { return (await api.get("/auth/me")).data; }
 export async function updateProfile(payload) { return (await api.patch("/auth/me", payload)).data; }

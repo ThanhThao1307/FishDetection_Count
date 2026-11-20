@@ -2,7 +2,7 @@ import { useState } from "react";
 import History from "./History.jsx";
 import { updateProfile } from "../services/api.js";
 
-export default function Profile({ user, onUserUpdated, onOpenAnalysis }) {
+export default function Profile({ user, onUserUpdated, onOpenAnalysis, onAuthExpired }) {
   const [displayName, setDisplayName] = useState(user.displayName);
   const [email, setEmail] = useState(user.email);
   const [currentPassword, setCurrentPassword] = useState("");
@@ -51,6 +51,6 @@ export default function Profile({ user, onUserUpdated, onOpenAnalysis }) {
         <button className="button primary profile-save" disabled={busy}>{busy ? "Đang lưu…" : "Lưu thay đổi"}</button>
       </form>
     </section>
-    <History onOpen={onOpenAnalysis} title="Video đã tải lên và nhận diện" eyebrow="LỊCH SỬ VIDEO" />
+    <History onOpen={onOpenAnalysis} onAuthExpired={onAuthExpired} title="Video đã tải lên và nhận diện" eyebrow="LỊCH SỬ VIDEO" />
   </div>;
 }

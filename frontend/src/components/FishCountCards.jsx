@@ -31,6 +31,5 @@ export default function FishCountCards({ item }) {
         <small className="count-description">cá được ghi nhận</small>
       </article>)}
     </div>
-    <p className="note">Đây là số lượng ước tính. Một con cá có thể bị tính nhiều lần nếu bị che khuất hoặc phần mềm mất dấu rồi nhận diện lại; cá xuất hiện quá ngắn có thể không được tính.</p>
   </section>;
 }

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { getHistory, deleteAnalysis } from "../services/api.js";
-export default function History({ onOpen, title = "Lịch sử", eyebrow = "CÁC LẦN PHÂN TÍCH" }) {
+export default function History({ onOpen, onAuthExpired, title = "Lịch sử", eyebrow = "CÁC LẦN PHÂN TÍCH" }) {
   const [data,setData] = useState({items:[],page:1,pages:1,total:0}); const [error,setError]=useState("");
-  async function load(page=1){try{setError("");setData(await getHistory(page));}catch(e){setError(e.response?.data?.message||e.message);}}
+  async function load(page=1){try{setError("");setData(await getHistory(page));}catch(e){if(e.response?.status===401)onAuthExpired?.();setError(e.response?.data?.message||e.message);}}
   useEffect(()=>{load(1)},[]);
   async function remove(id){if(!window.confirm("Xóa tác vụ và các tệp liên quan?"))return;try{await deleteAnalysis(id);load(data.page)}catch(e){setError(e.response?.data?.message||e.message)}}
   return <section className="panel history-panel"><div className="section-heading"><div><span className="eyebrow">{eyebrow}</span><h2>{title}</h2></div></div>{error&&<p className="error">{error}</p>}

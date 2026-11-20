@@ -17,7 +17,6 @@ function SpeciesInfoPanel() {
   return <section className="panel">
     <div className="section-heading"><div><span className="eyebrow">THÔNG TIN THAM KHẢO</span><h2>Các nhóm cá trong kết quả</h2></div></div>
     <div className="species-info-grid">{SPECIES_INFO.map(species=><article className="species-info-card" key={species.name}><h3>{species.name}</h3><p>{species.traits}</p></article>)}</div>
-    <p className="note">Đây là thông tin để tham khảo. Kết quả phụ thuộc vào góc quay, ánh sáng và chất lượng video; phần mềm có thể phân loại nhầm.</p>
   </section>;
 }
 
@@ -33,7 +32,6 @@ function VideoRecognitionPanel({ item }) {
       </div>
       <div className="recognition-details"><strong>{assessment.label || "Mức độ ổn định"}</strong><p>{assessment.description || "Mức đánh giá tham khảo cho video này."}</p></div>
     </div>
-    <p className="note">Đây là mức tham khảo do phần mềm tự đánh giá, không phải tỷ lệ nhận diện chính xác đã được kiểm chứng.</p>
   </section>;
 }
 
@@ -73,20 +71,13 @@ export default function Home({ initialId=null, user, onLogin }) {
       {!user&&<p className="guest-note">Bạn có thể dùng thử mà không cần đăng nhập. <button className="text-link" onClick={onLogin}>Đăng nhập hoặc tạo tài khoản</button> để lưu lịch sử.</p>}
       {error&&<p className="error">{error}</p>}
       {item&&<ProcessingStatus item={item} uploadProgress={uploadProgress}/>}
+      {item&&<ResultVideo id={item.id} ready={item.status==="completed"&&item.hasProcessedVideo}/>}
       {item?.status==="completed"&&<>
         <VideoRecognitionPanel item={item}/>
         <FishCountCards item={item}/>
         <FishAbundanceChart data={item.timelineData||[]}/>
         <SpeciesInfoPanel/>
       </>}
-      {item&&<ResultVideo id={item.id} ready={item.status==="completed"&&item.hasProcessedVideo}/>}
     </div>
-    <aside className="side-column">
-      <section className="panel guide-panel"><span className="eyebrow">CÁCH SỬ DỤNG</span><h3>Xem kết quả video</h3><ol>
-        <li>Tải video lên để bắt đầu.</li>
-        <li>Chờ phần mềm xem hết video và nhận diện các nhóm cá.</li>
-        <li>Xem tổng số cá, số cá theo từng nhóm loài và video có đánh dấu.</li>
-      </ol></section>
-    </aside>
   </div>;
 }
